@@ -1,27 +1,230 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Facebook - Log In or Sign Up</title>
-    <meta name="description" content="Facebook login page clone" />
-    <meta name="author" content="Lovable" />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facebook - Log In or Sign Up</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Helvetica, Arial, sans-serif;
+    }
 
-    <meta property="og:title" content="Facebook - Log In or Sign Up" />
-    <meta property="og:description" content="Facebook login page clone" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    body {
+      background: linear-gradient(to right, #f5f6f8, #f0f2f5, #f5f6f8);
+      min-height: 100vh;
+    }
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
+    .facebook-login-container {
+      max-width: 100%;
+      min-height: 100vh;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      padding: 15px;
+    }
 
-  <body>
-    <div id="root"></div>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      color: #4b4f56;
+    }
+
+    .back-button {
+      cursor: pointer;
+      color: #4b4f56;
+    }
+
+    .language {
+      font-size: 14px;
+      color: #4b4f56;
+      text-align: center;
+      flex-grow: 1;
+    }
+
+    .logo-container {
+      display: flex;
+      justify-content: center;
+      margin: 40px 0;
+    }
+
+    .facebook-logo {
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin: 20px 0;
+    }
+
+    .input-container {
+      position: relative;
+      width: 100%;
+    }
+
+    .login-input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #dddfe2;
+      border-radius: 6px;
+      font-size: 16px;
+      color: #1c1e21;
+    }
+
+    .login-input::placeholder {
+      color: #90949c;
+    }
+
+    .profile-icon {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .password-input {
+      padding: 14px 16px;
+    }
+
+    .login-button {
+      background-color: #1877F2;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 12px;
+      font-weight: bold;
+      font-size: 16px;
+      margin-top: 5px;
+      cursor: pointer;
+    }
+
+    .forgot-password {
+      text-align: center;
+      margin: 15px 0;
+    }
+
+    .forgot-password a {
+      color: #1877F2;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .footer {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding-bottom: 20px;
+    }
+
+    .create-account-button {
+      width: 100%;
+      background-color: white;
+      color: #1877F2;
+      border: 1px solid #1877F2;
+      border-radius: 6px;
+      padding: 12px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .meta-logo {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: #8a8d91;
+      font-size: 14px;
+      margin-top: 15px;
+    }
+
+    .meta-logo svg {
+      width: 24px;
+      height: 24px;
+    }
+  </style>
+</head>
+<body>
+  <div class="facebook-login-container">
+    <div class="header">
+      <div class="back-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M15 18l-6-6 6-6" />
+        </svg>
+      </div>
+      <div class="language">
+        English (UK)
+      </div>
+    </div>
+    
+    <div class="logo-container">
+      <div class="facebook-logo">
+        <img src="https://static.xx.fbcdn.net/rsrc.php/y8/r/dF5SId3UHWd.svg" alt="Facebook Logo" class="logo-image" />
+      </div>
+    </div>
+    
+    <div class="login-form">
+      <div class="input-container">
+        <input 
+          type="text" 
+          placeholder="Mobile number or email address" 
+          value="shahariarshuvooo"
+          class="login-input"
+        />
+        <div class="profile-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9370DB" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </div>
+      </div>
+      
+      <input 
+        type="password" 
+        placeholder="Password" 
+        class="login-input password-input"
+      />
+      
+      <button class="login-button">
+        Log in
+      </button>
+      
+      <div class="forgot-password">
+        <a href="#">Forgotten password?</a>
+      </div>
+    </div>
+    
+    <div class="footer">
+      <button class="create-account-button">
+        Create new account
+      </button>
+      
+      <div class="meta-logo">
+        <svg height="24" viewBox="0 0 36 36" width="36">
+          <path d="M20.181 35.87C29.094 34.791 36 27.202 36 18c0-9.941-8.059-18-18-18S0 8.059 0 18c0 8.442 5.811 15.526 13.652 17.471L14 34h2v-14h-3.5v-3H16v-2.839c0-4.141 2.14-6.259 5.961-6.259 1.535 0 2.277.15 2.889.215v3.091h-2.246c-1.406 0-2.133 1.363-2.133 2.663V17h4.654l-.893 3H20.471v13.036l-.29 2.834z" fill="#0081FB"></path>
+          <path d="M13.925 35.743C5.767 33.677 0 26.562 0 18 0 14.511 1.209 11.346 3.44 8.623l2.651 1.693c-1.601 2.504-2.594 5.382-2.594 8.23 0 7.848 5.377 14.43 12.428 16.453v.744z" fill="#0064E0"></path>
+        </svg>
+        <span>Meta</span>
+      </div>
+    </div>
+  </div>
+</body>
 </html>
